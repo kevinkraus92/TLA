@@ -1,0 +1,20 @@
+entero x; 
+entero z; 
+
+main() <
+	x vale 6;
+	z vale 1;
+
+	mientras ¿x mayor 0? <
+		z vale z multiplicado x;
+		x vale x menos 1;
+	>
+
+
+	puts("el factorial de 6 es:");
+	puts(z);
+
+
+
+
+>
