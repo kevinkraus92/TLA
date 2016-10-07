@@ -2,7 +2,14 @@
 
 %}
 
-STRING [a-zA-Z0-9]+
+
+ENTER ^"\n"
+
+START "EMPEZAR"
+END "TERMINAR"
+
+STRING "~"[a-zA-Z0-9]+"!~"
+
 INTEGER [0-9]+
 TRUE verdadero
 FALSE falso
@@ -28,6 +35,9 @@ OP_DIV " dividido "
 OP_MUL " multiplicado "
 OP_POW " potencia "
 
+OP_PLUS_ONE " aumentar"
+OP_SUB_ONE " disminuir"
+
 OP_OR " o "
 OP_AND " y " 
 OP_NEG " no "
@@ -39,10 +49,18 @@ OP_DIST " distinto "
 OP_LE " menor igual "
 OP_GE " mayor igual "
 
+OP_PRINT "imprime -> "
+
+END_INSTR "."
+
 
 %%
-[\n] 					ECHO;
 {INTEGER}				ECHO;
+
+{STRING}				printf("%s",yytext);
+
+{TRUE} 					printf("1");
+{FALSE} 				printf("0");
 
 {INT_VAR} 				printf("int");
 
@@ -62,6 +80,9 @@ OP_GE " mayor igual "
 {OP_MUL}				printf("*");
 {OP_POW}				printf("^");
 
+{OP_PLUS_ONE}			printf("++");
+{OP_SUB_ONE}			printf("--");
+
 {OP_OR}					printf("&&"); 
 {OP_AND}				printf("||");
 {OP_NEG}				printf("!");
@@ -72,7 +93,15 @@ OP_GE " mayor igual "
 {OP_GE}					printf(">=");
 {OP_EQ}					printf("==");
 {OP_DIST}				printf("!=");
+{OP_PRINT}				printf("printf");
 
+{START}					printf("main() {");
+{END}					printf("}");
+
+{ENTER}					printf("");
+{END_INSTR}				printf(";");
+"~" 					printf("('");
+"!~" 					printf("')");
 %%
 main(){
 	yylex();

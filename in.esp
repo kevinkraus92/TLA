@@ -1,20 +1,24 @@
-entero x; 
-entero z; 
+entero x.
+entero z.
 
-main() <
-	x vale 6;
-	z vale 1;
+EMPEZAR
+	x vale 6.
+	z vale 1.
+	w vale 9.
 
 	mientras ¿x mayor 0? <
-		z vale z multiplicado x;
-		x vale x menos 1;
+		z vale z multiplicado x.
+		x vale x menos 1.
+		w aumentar.
 	>
 
 
-	puts("el factorial de 6 es:");
-	puts(z);
+	imprime -> ~el factorial de 6 es !~.
+	imprime -> ~ z !~.
 
 
 
 
->
+
+
+TERMINAR
