@@ -1,11 +1,10 @@
 # TLA
 Teoria de Lenguajes y Automatas ITBA 2016
 
-## Run
+## Compile and Run
 ### Linux
 ```
-flex scanner.l
-gcc lex.yy.c -lfl -oscanner.out
+make
 ./scanner.out < in.esp
 
 ```

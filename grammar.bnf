@@ -1,0 +1,29 @@
+<S> ::= "EMPEZAR" <code> "TERMINAR"
+
+<code> ::= "" | <instruction> <code> | <control_sequence> <code>
+
+<instruction> ::= <declaration> <asign>"." | <declaration>"." | <print>"."
+
+<declaration> ::= <type> <var>
+
+<type> ::= "entero"
+
+<asign> ::= "vale" <expression> | <var> "vale" <expression>
+
+<print> ::= "imprime" "->" "~" <STRING??> "!~"
+
+<control_sequence> ::= <if> | <loop>
+
+<if> ::= "si" "¿" <boolean_expression> "?" <open_block> <code> <close_block> |
+ "si" "¿" <boolean_expression> "?" <open_block> <code> <close_block> "sino" <open_block> <code> <close_block>
+
+<loop> ::= "hacer" <code> "mientras" <boolean_expresion>  | "mientras" <boolean_expression> <open_block> <code> <close_block>
+
+<open_block> ::= "<"
+
+<close_block> ::= ">"
+
+<boolean_expression> ::= <open_parenthesis> <boolean_expression> <close_parenthesis> | <boolean_expression> <boolean_operator> <boolean_expression>
+
+
+
