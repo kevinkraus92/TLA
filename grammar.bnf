@@ -1,16 +1,24 @@
-<S> ::= "EMPEZAR" <code> "TERMINAR"
+<S> ::=  "EMPEZAR" <code> "TERMINAR"
 
 <code> ::= "" | <instruction> <code> | <control_sequence> <code>
 
-<instruction> ::= <declaration> <asign>"." | <declaration>"." | <print>"."
+<instruction> ::= <declaration> <asign>"." | <declaration>"." | <print>"." | <var_name> <asign>"." | <var_name> "aumentar" | <var_name> "disminuir"
 
-<declaration> ::= <type> <var>
+<declaration> ::= <type> <var_name>
+
+<var_name> ::= <letter> | <var_name> <letter>
+
+<letter> ::= [a-zA-Z]  ------------ Preguntar
 
 <type> ::= "entero"
 
-<asign> ::= "vale" <expression> | <var> "vale" <expression>
+<asign> ::= "vale" <expression>
 
-<print> ::= "imprime" "->" "~" <STRING??> "!~"
+<integer> ::= <digit> | <integer> <digit>
+
+<digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+<print> ::= "imprime" "->" "~" <STRING??> "!~"  -------------Preguntar STRING 
 
 <control_sequence> ::= <if> | <loop>
 
@@ -23,7 +31,20 @@
 
 <close_block> ::= ">"
 
-<boolean_expression> ::= <open_parenthesis> <boolean_expression> <close_parenthesis> | <boolean_expression> <boolean_operator> <boolean_expression>
+<boolean_expression> ::= <boolean_expression> "o" <boolean_expression> | <boolean_term>
 
+<boolean_term> ::= <boolean_term> "y" <boolean_term> | <boolean_factor>
 
+<boolean_factor> ::= "(" <boolean_expression> ")" | "no" <boolean_factor> | <boolean>
 
+<boolean> ::= true | false | <comparation>
+
+<comparation> ::=  <expression> <compare_operator> <expression>
+
+<expression> ::= "(" <expression> "+" <term> ")" | "(" <expression> "-" <term> ")" | <term>
+
+<term> ::= "(" <term> "*" <factor> ")" | "(" <term> "/" <factor> ")" | <factor>
+
+<factor> ::= <var_name> | <integer>
+
+<compare_operator> ::= " menor " | " mayor " | " igual " |" distinto " | " menor igual " | " mayor igual "
