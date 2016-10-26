@@ -2,8 +2,8 @@ EMPEZAR
 	entero n.
 	entero i.
 
-	imprime -> ~ingrese un numero !~.
-	entrada -> n <-.
+	imprime ¿~ ingrese un numero ~?.
+	entrada ¿ n ?.
 
 	i vale n.
 
@@ -11,7 +11,7 @@ EMPEZAR
 
 	si ¿ i igual 0 ?<
 
-		imprime-> ~ 1 !~.
+		imprime ¿ ~ 1 ~ ?.
 	>
 
 	sino <
@@ -23,7 +23,7 @@ EMPEZAR
 
 		>
 
-		imprime -> n .		
+		imprime ¿ n ?.		
 		
 	>
 

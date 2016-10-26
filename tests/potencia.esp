@@ -1,0 +1,37 @@
+EMPEZAR
+
+	entero base.
+	entero pot.
+
+	imprime ¿ ~Ingrese la base~ ?
+	entrada ¿ base ?.
+	imprime ¿ ~Ingrese la potencia~ ?
+	entrada ¿ pot ?. 
+
+	si ¿ pot igual 0 y base igual 0?<
+
+		imprime ¿ ~Error~ ?.
+	> sino <
+
+		si ¿ base igual 0 ?<
+
+			imprime ¿base?.
+
+		> sino <
+				si ¿ pot igual 0?<
+
+					imprime ¿ 1 ?.
+
+				>
+				sino <
+					mientras ¿ pot mayor igual 1 ? <
+					base vale base multiplicado base.
+					pot decrementar.
+					>
+
+					imprime ¿base?.
+				>
+			>
+		>
+
+TERMINAR
