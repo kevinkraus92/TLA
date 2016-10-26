@@ -8,13 +8,14 @@ ENTER ^"\n"
 START "EMPEZAR"
 END "TERMINAR"
 
-STRING "~"[a-zA-Z0-9]+"!~"
+STRING [~][^\n\r]*[!~] 
 
 INTEGER [0-9]+
 TRUE verdadero
 FALSE falso
 
 INT_VAR entero
+VAR_NAME [a-zA-Z]+
 
 IF si
 ELSE sino
@@ -35,8 +36,8 @@ OP_DIV " dividido "
 OP_MUL " multiplicado "
 OP_POW " potencia "
 
-OP_PLUS_ONE " aumentar"
-OP_SUB_ONE " disminuir"
+OP_PLUS_ONE "aumentar"
+OP_SUB_ONE "decrementar"
 
 OP_OR " o "
 OP_AND " y " 
@@ -50,6 +51,7 @@ OP_LE " menor igual "
 OP_GE " mayor igual "
 
 OP_PRINT "imprime -> "
+OP_IN "entrada -> "
 
 END_INSTR "."
 

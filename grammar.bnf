@@ -2,7 +2,7 @@
 
 <code> ::= "" | <instruction> <code> | <control_sequence> <code>
 
-<instruction> ::= <declaration> <asign>"." | <declaration>"." | <print>"." | <var_name> <asign>"." | <var_name> "aumentar" | <var_name> "disminuir"
+<instruction> ::= <declaration> <asign>"." | <declaration>"." | <print>"." | <var_name> <asign>"." | <var_name> "aumentar" | <var_name> "decrementar" | "entrada" "->" <var_name> "."
 
 <declaration> ::= <type> <var_name>
 

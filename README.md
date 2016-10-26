@@ -1,18 +1,16 @@
 # TLA
 Teoria de Lenguajes y Automatas ITBA 2016
 
-## Compile and Run
-### Linux
+## Linux & Mac
+### Compilar
 ```
 make
-./scanner.out < in.esp
-
 ```
-
-### Mac
+### Ejecutar
 ```
-flex scanner.l
-gcc -ll lex.yy.c -oscanner.out
-./scanner.out < in.esp
-
+./scanner.out 
+```
+### Ejecutar 'file.esp'
+```
+./scanner.out < file.esp
 ```

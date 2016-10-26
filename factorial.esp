@@ -1,0 +1,30 @@
+EMPEZAR
+	entero n.
+	entero i.
+
+	imprime -> ~ingrese un numero !~.
+	entrada -> n <-.
+
+	i vale n.
+
+	i decrementar.
+
+	si ¿ i igual 0 ?<
+
+		imprime-> ~ 1 !~.
+	>
+
+	sino <
+
+		mientras ¿ i mayor 0 ? <
+
+			n vale n multiplicado i.
+			i vale i menos 1.
+
+		>
+
+		imprime -> n .		
+		
+	>
+
+TERMINAR
