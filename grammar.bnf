@@ -2,27 +2,15 @@
 
 <code> ::= "" | <instruction> <code> | <control_sequence> <code>
 
-<instruction> ::= <declaration> <asign>"." | <declaration>"." | <print>"." | <var_name> <asign>"." | <var_name> "aumentar" | <var_name> "decrementar" | "entrada" "¿" <var_name> "?" "."
+<instruction> ::= <declaration> <asign>"." | <declaration>"." | <print>"." | "VAR_NAME" <asign>"." | "VAR_NAME" "aumentar" | "VAR_NAME" "decrementar" | "entrada" "¿" "VAR_NAME" "?" "."
 
-<declaration> ::= <type> <var_name>
-
-<var_name> ::= <letter> | <var_name> <letter>
-
-<string> ::= <letter> <string> | <integer> <string> | <symbol> <string> | "" 
-
-<letter> ::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | ""
-
- <digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
-
- <symbol> ::=  "|" | " " | "-" | "!" | "#" | "$" | "%" | "&" | "(" | ")" | "*" | "+" | "," | "-" | "." | "/" | ":" | ";" | "<" | "=" | ">" | "?" | "@" | "[" | "\" | "]" | "^" | "_" | "`" | "{" | "|" | "}" | "~"
+<declaration> ::= <type> "VAR_NAME"
 
 <type> ::= "entero"
 
 <asign> ::= "vale" <expression>
 
-<integer> ::= <digit> | <integer> <digit>
-
-<print> ::= "imprime" "¿" "~" <string> "?" | "imprime" "¿" <var_name> "?"
+<print> ::= "imprime" "¿" "STRING" "?" | "imprime" "¿" "VAR_NAME" "?"
 
 <control_sequence> ::= <if> | <loop>
 
@@ -41,7 +29,7 @@
 
 <boolean_factor> ::= "(" <boolean_expression> ")" | "no" <boolean_factor> | <boolean>
 
-<boolean> ::= true | false | <comparation>
+<boolean> ::= "verdadero" | "falso" | <comparation>
 
 <comparation> ::=  <expression> <compare_operator> <expression>
 
@@ -49,6 +37,6 @@
 
 <term> ::= "(" <term> "*" <factor> ")" | "(" <term> "/" <factor> ")" | <factor>
 
-<factor> ::= <var_name> | <integer>
+<factor> ::= "VAR_NAME" | "INTEGER"
 
 <compare_operator> ::= " menor " | " mayor " | " igual " |" distinto " | " menor igual " | " mayor igual "
