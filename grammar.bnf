@@ -1,42 +1,42 @@
-<S> ::=  "EMPEZAR" <code> "TERMINAR"
+<S> ::=  "START" <code> "END"
 
 <code> ::= "" | <instruction> <code> | <control_sequence> <code>
 
-<instruction> ::= <declaration> <asign>"." | <declaration>"." | <print>"." | "VAR_NAME" <asign>"." | "VAR_NAME" "aumentar" | "VAR_NAME" "decrementar" | "entrada" "¿" "VAR_NAME" "?" "."
+<instruction> ::= <declaration> <asign>"END_INSTR" | <declaration>"END_INSTR" | <print>"END_INSTR" | "VAR_NAME" <asign>"END_INSTR" | "VAR_NAME" "OP_PLUS_ONE" | "VAR_NAME" "OP_SUB_ONE" | "OP_IN" "OPEN_PARENTHESIS" "VAR_NAME" "CLOSE_PARENTHESIS" "END_INSTR"
 
 <declaration> ::= <type> "VAR_NAME"
 
-<type> ::= "entero"
+<type> ::= "INT_VAR"
 
-<asign> ::= "vale" <expression>
+<asign> ::= "OP_ASSIGN" <expression>
 
-<print> ::= "imprime" "¿" "STRING" "?" | "imprime" "¿" "VAR_NAME" "?"
+<print> ::= "OP_PRINT" "OPEN_PARENTHESIS" "STRING" "CLOSE_PARENTHESIS" | "OP_PRINT" "OPEN_PARENTHESIS" "VAR_NAME" "CLOSE_PARENTHESIS"
 
 <control_sequence> ::= <if> | <loop>
 
-<if> ::= "si" "¿" <boolean_expression> "?" <open_block> <code> <close_block> |
- "si" "¿" <boolean_expression> "?" <open_block> <code> <close_block> "sino" <open_block> <code> <close_block>
+<if> ::= "IF" "OPEN_PARENTHESIS" <boolean_expression> "CLOSE_PARENTHESIS" <open_block> <code> <close_block> |
+ "IF" "OPEN_PARENTHESIS" <boolean_expression> "CLOSE_PARENTHESIS" <open_block> <code> <close_block> "ELSE" <open_block> <code> <close_block>
 
-<loop> ::= "hacer" <code> "mientras" <boolean_expresion>  | "mientras" <boolean_expression> <open_block> <code> <close_block>
+<loop> ::= "DO" <code> "WHILE" <boolean_expresion>  | "WHILE" <boolean_expression> <open_block> <code> <close_block>
 
-<open_block> ::= "<"
+<open_block> ::= "OPEN_BLOCK"
 
-<close_block> ::= ">"
+<close_block> ::= "CLOSE_BLOCK"
 
-<boolean_expression> ::= <boolean_expression> "o" <boolean_expression> | <boolean_term>
+<boolean_expression> ::= <boolean_expression> "OP_OR" <boolean_expression> | <boolean_term>
 
-<boolean_term> ::= <boolean_term> "y" <boolean_term> | <boolean_factor>
+<boolean_term> ::= <boolean_term> "OP_AND" <boolean_term> | <boolean_factor>
 
-<boolean_factor> ::= "(" <boolean_expression> ")" | "no" <boolean_factor> | <boolean>
+<boolean_factor> ::= "(" <boolean_expression> ")" | "OP_NEG" <boolean_factor> | <boolean>
 
-<boolean> ::= "verdadero" | "falso" | <comparation>
+<boolean> ::= "TRUE" | "FALSE" | <comparation>
 
 <comparation> ::=  <expression> <compare_operator> <expression>
 
-<expression> ::= "(" <expression> "+" <term> ")" | "(" <expression> "-" <term> ")" | <term>
+<expression> ::= "(" <expression> "OP_SUM" <term> ")" | "(" <expression> "OP_SUB" <term> ")" | <term>
 
-<term> ::= "(" <term> "*" <factor> ")" | "(" <term> "/" <factor> ")" | <factor>
+<term> ::= "(" <term> "OP_MUL" <factor> ")" | "(" <term> "OP_DIV" <factor> ")" | <factor>
 
 <factor> ::= "VAR_NAME" | "INTEGER"
 
-<compare_operator> ::= " menor " | " mayor " | " igual " |" distinto " | " menor igual " | " mayor igual "
+<compare_operator> ::= "OP_LT" | "OP_GT" | "OP_EQ" |"OP_DIST" | "OP_LE" | "OP_GE"
