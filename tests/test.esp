@@ -1,4 +1,10 @@
 EMPEZAR
 entero x.
 entero y.
+imprime¿"ingrese un numero"?.
+x vale 9.
+y vale x.
+si ¿ x igual 9 ? <
+imprime¿"Bien hecho hermano"?.
+>
 TERMINAR

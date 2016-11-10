@@ -1,5 +1,6 @@
 %{
 #include "y.tab.h"
+#include <strings.h>
 %}
 
 
@@ -28,7 +29,7 @@ CLOSE_PARENTHESIS "?"
 OPEN_BLOCK "<"
 CLOSE_BLOCK ">"
 
-OP_ASSIGN vale
+OP_ASSIGN " vale "
 
 OP_SUM " mas "
 OP_SUB " menos "

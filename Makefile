@@ -10,9 +10,9 @@ all:
 	gcc -o parser.out lex.yy.c y.tab.c -ly
 
 compile:
-	./parser.out < tests/test.esp > salida.c
+	./parser.out < tests/factorial.esp > salida.c
 	gcc -c salida.c
-	gcc salida.o -o salida
+	gcc salida.o -o salida.out
 
 out:
 ifeq ($(OS),Darwin)

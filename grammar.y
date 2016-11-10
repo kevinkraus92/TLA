@@ -2,6 +2,7 @@
 	#include <stdio.h>
 %}
 
+%token INTEGER;
 %token STRING;
 %token TRUE;
 %token FALSE;
@@ -18,6 +19,7 @@
 %token OP_ASSIGN;
 %token OP_SUM;
 %token OP_SUB;
+%token OP_DIV;
 %token OP_MUL;
 %token OP_PLUS_ONE;
 %token OP_SUB_ONE;
@@ -48,15 +50,15 @@ estart: START {
 	printf("int main(){");
 };
 
-code : instruction code | control_sequence code | {
+code : instruction code | control_sequence code |{
 };
 
 instruction : declaration assign end_instr 
 | declaration end_instr 
 | print end_instr 
 | var_name assign end_instr 
-| var_name op_plus_one 
-| var_name op_sub_one;
+| var_name op_plus_one end_instr
+| var_name op_sub_one end_instr;
 
 declaration: type var_name;
 
@@ -72,6 +74,7 @@ var_name: VAR_NAME {
 
 print: op_print open_parenthesis string close_parenthesis 
 | op_print open_parenthesis var_name close_parenthesis;
+
 
 control_sequence : if_block | loop;
 
@@ -118,12 +121,10 @@ op_sub_one: OP_SUB_ONE {
 };
 
 string: STRING{
-	printf("%s",$1); // Sacar los moños
+	printf("%s",$1); 
 };
 
-assign: op_assign expression {
-	
-};
+assign: op_assign expression;
 
 op_assign: OP_ASSIGN {
 	printf("=");
@@ -143,17 +144,33 @@ boolean: true
 		| false 
 		| comparation;
 
+true: TRUE{
+	printf(1);
+}		
+false: FALSE{
+	printf(0);
+}		
+
 comparation: expression compare_operator expression;
 
 expression: open_parenthesis expression op_sum term close_parenthesis
 			| open_parenthesis expression op_sub term close_parenthesis
-			| term;
+			| term
+			| expression op_sum term 
+			| expression op_sub term;
 
 term: open_parenthesis term op_mul factor close_parenthesis
 			| open_parenthesis term op_div factor close_parenthesis
-			| term factor;
+			| term factor 
+			| factor
+			| term op_mul factor 
+			| term op_div factor;
 
 factor: var_name | integer;
+
+integer: INTEGER{
+	printf("%d",$1);
+}
 
 compare_operator: op_lt 
 				| op_gt 
