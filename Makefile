@@ -22,5 +22,5 @@ else
 endif	
 
 clean: 	
-	rm -f $(SCANNER_OUT) lex.yy.c y.tab.c y.tab.h
+	rm -f $(SCANNER_OUT) lex.yy.c y.tab.c y.tab.h parser.out salida.c salida.o
 
