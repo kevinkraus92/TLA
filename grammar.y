@@ -48,8 +48,8 @@ estart: START {
 	printf("int main(){");
 };
 
-code : instruction code | {
-}; 
+code : instruction code | control_sequence code | {
+};
 
 instruction : declaration assign end_instr 
 | declaration end_instr 
@@ -72,6 +72,38 @@ var_name: VAR_NAME {
 
 print: op_print open_parenthesis string close_parenthesis 
 | op_print open_parenthesis var_name close_parenthesis;
+
+control_sequence : if_block | loop;
+
+if_block : if open_parenthesis boolean_expression close_parenthesis open_block code close_block 
+| if open_parenthesis boolean_expression close_parenthesis open_block code close_block else open_block code close_block;
+
+if : IF {
+	printf("if");
+};
+
+open_block : OPEN_BLOCK {
+	printf("{");
+};
+
+close_block : CLOSE_BLOCK {
+	printf("}");
+};
+
+else : ELSE {
+	printf("else");
+};
+
+loop : do open_block code close_block while open_parenthesis boolean_expression close_parenthesis 
+| while open_parenthesis boolean_expression close_parenthesis open_block code close_block;
+
+do : DO {
+	printf("do");
+};
+
+while : WHILE {
+	printf("while");
+};
 
 op_print: OP_PRINT {
 	printf("printf");
