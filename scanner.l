@@ -8,7 +8,7 @@ ENTER ^"\n"
 START "EMPEZAR"
 END "TERMINAR"
 
-STRING [~][^\n\r]*[~] 
+STRING ["][^\n\r]*["] 
 
 INTEGER [0-9]+
 TRUE verdadero
@@ -56,8 +56,8 @@ END_INSTR "."
 
 
 %%
-{INTEGER}				ECHO;
-{STRING}				return STRING;
+{INTEGER}				yylval = atoi(yytext); return INTEGER;
+{STRING}				yylval = yytext; return STRING;
 
 {TRUE}					return TRUE;
 {FALSE}					return FALSE;
