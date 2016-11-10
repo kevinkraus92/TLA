@@ -57,48 +57,48 @@ END_INSTR "."
 
 %%
 {INTEGER}				ECHO;
-{STRING}			printf("%s",yytext);
+{STRING}				return STRING;
 
-{TRUE} 					printf("1");
-{FALSE} 				printf("0");
+{TRUE}					return TRUE;
+{FALSE}					return FALSE;
 
-{INT_VAR} 				printf("int");
+{INT_VAR}				return INT_VAR;
 
-{IF} 					printf("if");
-{ELSE} 					printf("else");
-{DO} 					printf("do");
-{WHILE} 				printf("while");
+{IF}					return IF;
+{ELSE}					return ELSE;
+{DO}					return DO;
+{WHILE}					return WHILE;
 
-{OPEN_PARENTHESIS} 		printf("(");
-{CLOSE_PARENTHESIS} 	printf(")");
-{OPEN_BLOCK} 			printf("{");
-{CLOSE_BLOCK} 			printf("}");
+{OPEN_PARENTHESIS}		return OPEN_PARENTHESIS;
+{CLOSE_PARENTHESIS}		return CLOSE_PARENTHESIS;
+{OPEN_BLOCK} 			return OPEN_BLOCK;
+{CLOSE_BLOCK} 			return CLOSE_BLOCK;
 
-{OP_ASSIGN}				printf("=");
-{OP_SUM}				printf("+");
-{OP_SUB}				printf("-");
-{OP_MUL}				printf("*");
+{OP_ASSIGN}				return OP_ASSIGN;
+{OP_SUM}				return OP_SUM;
+{OP_SUB}				return OP_SUB;
+{OP_MUL}				return OP_MUL;
 
-{OP_PLUS_ONE}			printf("++");
-{OP_SUB_ONE}			printf("--");
+{OP_PLUS_ONE}			return OP_PLUS_ONE;
+{OP_SUB_ONE}			return OP_SUB_ONE;
 
-{OP_OR}					printf("&&"); 
-{OP_AND}				printf("||");
-{OP_NEG}				printf("!");
+{OP_OR}					return OP_OR;
+{OP_AND}				return OP_AND;
+{OP_NEG}				return OP_NEG;
 
-{OP_LT}					printf("<");
-{OP_GT}					printf(">");
-{OP_LE}					printf("<=");
-{OP_GE}					printf(">=");
-{OP_EQ}					printf("==");
-{OP_DIST}				printf("!=");
-{OP_PRINT}				printf("printf ");
+{OP_LT}					return OP_LT;
+{OP_GT}					return OP_GT;
+{OP_LE}					return OP_LE;
+{OP_GE}					return OP_GE;
+{OP_EQ}					return OP_EQ;
+{OP_DIST}				return OP_DIST;
+{OP_PRINT}				return OP_PRINT;
 
-{START}					printf("main() {");
-{END}					printf("}");
+{START}					return START;
+{END}					return END;
 
-{ENTER}					printf("");
-{END_INSTR}				printf(";");
+{ENTER}					return ENTER;
+{END_INSTR}				return END_INSTR;
 %%
 main(){
 	yylex();
