@@ -97,9 +97,90 @@ op_assign: OP_ASSIGN {
 	printf("=");
 }
 
-expression: {
+boolean_expression: boolean_expression op_or boolean_expression
+					| boolean_term;
 
-};
+boolean_term: boolean_term op_and boolean_term
+			| boolean_factor;
+
+boolean_factor: open_parenthesis boolean_expression close_parenthesis 
+				| op_neg boolean_factor
+				| boolean;
+
+boolean: true 
+		| false 
+		| comparation;
+
+comparation: expression compare_operator expression;
+
+expression: open_parenthesis expression op_sum term close_parenthesis
+			| open_parenthesis expression op_sub term close_parenthesis
+			| term;
+
+term: open_parenthesis term op_mul factor close_parenthesis
+			| open_parenthesis term op_div factor close_parenthesis
+			| term factor;
+
+factor: var_name | integer;
+
+compare_operator: op_lt 
+				| op_gt 
+				| op_eq 
+				| op_dist
+				| op_le
+				| op_ge;
+
+op_or: OP_OR {
+	printf("||");
+}
+
+op_and: OP_AND {
+	printf("&&");
+}
+
+op_mul: OP_MUL {
+	printf("*");
+}
+
+op_sum: OP_SUM {
+	printf("+");
+}
+
+op_sub: OP_SUB {
+	printf("-");
+}
+
+op_div: OP_DIV {
+	printf("/");
+}
+
+op_neg: OP_NEG {
+	printf("!");
+}
+
+op_lt: OP_LT {
+	printf("<");
+}
+
+op_gt: OP_GT {
+	printf(">");
+}
+
+op_eq: OP_EQ {
+	printf("==");
+}
+
+op_dist: OP_DIST {
+	printf("!=");
+}
+
+op_le: OP_LE {
+	printf("<=");
+}
+
+op_ge: OP_GE {
+	printf(">=");
+}
 
 end_instr: END_INSTR {
 	printf(";");
