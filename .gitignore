@@ -1,5 +1,7 @@
-# Lex
+# Lex & Yacc
 *.yy.c
+*.tab.c
+*.tab.h
 
 # Object files
 *.o

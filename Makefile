@@ -4,10 +4,15 @@ OS = $(shell uname)
 
 .PHONY: clean		
 
-all: flex out	
+all: 
+	yacc -d grammar.y
+	lex $(SCANNER_RULES)
+	gcc -o parser.out lex.yy.c y.tab.c -ly
 
-flex:
-	flex $(SCANNER_RULES)
+compile:
+	./parser.out < tests/test.esp > salida.c
+	gcc -c salida.c
+	gcc salida.o -o salida
 
 out:
 ifeq ($(OS),Darwin)
@@ -17,5 +22,5 @@ else
 endif	
 
 clean: 	
-	rm $(SCANNER_OUT) lex.yy.c
+	rm -f $(SCANNER_OUT) lex.yy.c y.tab.c y.tab.h
 

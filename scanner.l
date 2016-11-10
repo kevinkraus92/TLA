@@ -1,5 +1,5 @@
 %{
-
+#include "y.tab.h"
 %}
 
 
@@ -99,9 +99,8 @@ END_INSTR "."
 
 {ENTER}					return ENTER;
 {END_INSTR}				return END_INSTR;
+
+{VAR_NAME}				{yylval = yytext; return VAR_NAME;}
 %%
-main(){
-	yylex();
-	return 0;
-}
+
 
