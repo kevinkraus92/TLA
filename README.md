@@ -2,15 +2,16 @@
 Teoria de Lenguajes y Automatas ITBA 2016
 
 ## Linux & Mac
-### Compilar
+### Compilar compilador
 ```
 make
+make compile
 ```
 ### Ejecutar
 ```
-./scanner.out 
+./salida.out 
 ```
 ### Ejecutar 'file.esp'
 ```
-./scanner.out < file.esp
+
 ```

@@ -73,7 +73,8 @@ var_name: VAR_NAME {
 };
 
 print: op_print open_parenthesis string close_parenthesis 
-| op_print open_parenthesis var_name close_parenthesis;
+| op_print open_parenthesis var_name close_parenthesis 
+| op_print open_parenthesis integer close_parenthesis;
 
 
 control_sequence : if_block | loop;
