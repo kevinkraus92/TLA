@@ -1,10 +1,19 @@
 EMPEZAR
 entero x.
 entero y.
-imprime¿"ingrese un numero"?.
+imprime¿"valida si el 9 es primo"?.
 x vale 9.
 y vale x.
-si ¿ x igual 9 ? <
-imprime¿"Bien hecho hermano"?.
+
+si ¿ x menor 0 ? <
+imprime¿"Los negativos no son primos"?.
 >
+si ¿ x igual 1 ? <
+imprime¿"No es primo"?.
+>
+si ¿ x igual 2 ? <
+imprime¿"No es primo"?.
+>
+
+
 TERMINAR

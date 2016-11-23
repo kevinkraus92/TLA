@@ -1,6 +1,7 @@
 %{
 #include "y.tab.h"
 #include <strings.h>
+#include <stdlib.h>
 %}
 
 
@@ -10,7 +11,7 @@ START "EMPEZAR"
 END "TERMINAR"
 
 STRING ["][^\n\r]*["] 
-
+COMA ","
 INTEGER [0-9]+
 TRUE verdadero
 FALSE falso
@@ -57,9 +58,9 @@ END_INSTR "."
 
 
 %%
-{INTEGER}				yylval = atoi(yytext); return INTEGER;
-{STRING}				yylval = yytext; return STRING;
-
+{INTEGER}				{yylval = atoi(yytext); return INTEGER;}
+{STRING}				{yylval = yytext; return STRING;}
+{COMA}                                  {yylval = yytext; return COMA;}
 {TRUE}					return TRUE;
 {FALSE}					return FALSE;
 

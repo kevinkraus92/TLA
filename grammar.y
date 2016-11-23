@@ -2,6 +2,7 @@
 	#include <stdio.h>
 %}
 
+
 %token INTEGER;
 %token STRING;
 %token TRUE;
@@ -37,20 +38,20 @@
 %token END;
 %token ENTER;
 %token END_INSTR;
-
+%token COMA;
 
 %start comienza
 %%
 
-comienza : estart code{
+comienza : start code{
 	printf("}");
 };
 
-estart: START {
+start: START {
 	printf("int main(){");
 };
 
-code : instruction code | control_sequence code |{
+code : instruction code | control_sequence code | /*empty*/ {
 };
 
 instruction : declaration assign end_instr 
@@ -68,14 +69,15 @@ int_var: INT_VAR{
 	printf("int");
 }; 
 
-var_name: VAR_NAME {
-	printf("%s",$1);
+print: op_print open_parenthesis string coma string close_parenthesis
+| op_print open_parenthesis string coma var_name close_parenthesis
+| op_print open_parenthesis string coma integer close_parenthesis
+| op_print open_parenthesis string close_parenthesis
+;
+
+coma : COMA {
+	printf(",");     
 };
-
-print: op_print open_parenthesis string close_parenthesis 
-| op_print open_parenthesis var_name close_parenthesis 
-| op_print open_parenthesis integer close_parenthesis;
-
 
 control_sequence : if_block | loop;
 
@@ -121,6 +123,10 @@ op_sub_one: OP_SUB_ONE {
 	printf("--");
 };
 
+var_name : VAR_NAME {
+	printf("%s",$1);	 
+}
+
 string: STRING{
 	printf("%s",$1); 
 };
@@ -146,10 +152,10 @@ boolean: true
 		| comparation;
 
 true: TRUE{
-	printf(1);
+	printf("1");
 }		
 false: FALSE{
-	printf(0);
+	printf("0");
 }		
 
 comparation: expression compare_operator expression;
@@ -250,6 +256,6 @@ int yywrap(){
 	return 1;
 }
 
-main (){
+int main (){
 	yyparse();
 }
