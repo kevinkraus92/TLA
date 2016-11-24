@@ -22,6 +22,7 @@
 %token OP_SUB;
 %token OP_DIV;
 %token OP_MUL;
+%token OP_MODULO;
 %token OP_PLUS_ONE;
 %token OP_SUB_ONE;
 %token OP_OR;
@@ -164,14 +165,19 @@ expression: open_parenthesis expression op_sum term close_parenthesis
 			| open_parenthesis expression op_sub term close_parenthesis
 			| term
 			| expression op_sum term 
-			| expression op_sub term;
+			| expression op_sub term
+			| expression op_modulo term
+                        | open_parenthesis expression op_modulo term close_parenthesis;
+
 
 term: open_parenthesis term op_mul factor close_parenthesis
 			| open_parenthesis term op_div factor close_parenthesis
 			| term factor 
 			| factor
 			| term op_mul factor 
-			| term op_div factor;
+			| term op_div factor
+			| term op_modulo factor
+                        | open_parenthesis factor op_modulo factor close_parenthesis;
 
 factor: var_name | integer;
 
@@ -236,6 +242,10 @@ op_le: OP_LE {
 
 op_ge: OP_GE {
 	printf(">=");
+}
+
+op_modulo: OP_MODULO {
+	printf("%%");	 
 }
 
 end_instr: END_INSTR {

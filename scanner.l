@@ -50,6 +50,7 @@ OP_EQ " igual "
 OP_DIST " distinto "
 OP_LE " menor igual "
 OP_GE " mayor igual "
+OP_MODULO " modulo "
 
 OP_PRINT "imprime"
 OP_IN "entrada"
@@ -80,6 +81,7 @@ END_INSTR "."
 {OP_SUM}				return OP_SUM;
 {OP_SUB}				return OP_SUB;
 {OP_MUL}				return OP_MUL;
+{OP_MODULO}                             return OP_MODULO;
 
 {OP_PLUS_ONE}			return OP_PLUS_ONE;
 {OP_SUB_ONE}			return OP_SUB_ONE;

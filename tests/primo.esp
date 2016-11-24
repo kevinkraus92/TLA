@@ -1,0 +1,24 @@
+EMPEZAR
+entero a.
+entero b.
+a vale 303.
+imprime¿"valida si el %d es primo\n",a?.
+b vale a menos 1.
+si ¿ a menor 0 ? <
+	imprime¿"Los negativos no son primos\n"?.
+>
+si ¿ a igual 1 ? <
+	imprime¿"No es primo\n"?.
+>
+si ¿ a igual 2 ? <
+	imprime¿"No es primo\n"?.
+>
+mientras¿ ¿ a modulo b? distinto 0 y b distinto 1 ?<
+	b decrementar.
+>
+si ¿ b igual 1 ? <
+	imprime¿"%d es primo\n",a?.
+> sino <
+	imprime¿"%d NO es primo\n",a?.
+>
+TERMINAR

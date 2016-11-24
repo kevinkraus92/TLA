@@ -18,6 +18,10 @@ compile:
 	gcc -c -w potencia.c
 	gcc -w potencia.o -o potencia.out
 	./potencia.out
+	./$(PARSER) < tests/primo.esp > primo.c
+	gcc -c -w primo.c
+	gcc -w primo.o -o primo.out
+	./primo.out
 
 clean: 	
 	rm -f *.out *.o $(PARSER) lex.yy.c y.tab.c y.tab.h potencia.c factorial.c
