@@ -166,8 +166,7 @@ expression: open_parenthesis expression op_sum term close_parenthesis
 			| term
 			| expression op_sum term 
 			| expression op_sub term
-			| expression op_modulo term
-                        | open_parenthesis expression op_modulo term close_parenthesis;
+			| expression op_modulo term;
 
 
 term: open_parenthesis term op_mul factor close_parenthesis
@@ -175,9 +174,7 @@ term: open_parenthesis term op_mul factor close_parenthesis
 			| term factor 
 			| factor
 			| term op_mul factor 
-			| term op_div factor
-			| term op_modulo factor
-                        | open_parenthesis factor op_modulo factor close_parenthesis;
+			| term op_div factor;
 
 factor: var_name | integer;
 

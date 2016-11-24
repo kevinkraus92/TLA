@@ -13,7 +13,7 @@ si ¿ a igual 1 ? <
 si ¿ a igual 2 ? <
 	imprime¿"No es primo\n"?.
 >
-mientras¿ ¿ a modulo b? distinto 0 y b distinto 1 ?<
+mientras¿a modulo b distinto 0 y b distinto 1 ?<
 	b decrementar.
 >
 si ¿ b igual 1 ? <
