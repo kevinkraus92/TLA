@@ -12,6 +12,7 @@ END "TERMINAR"
 
 STRING ["][^\n\r]*["] 
 COMA ","
+AMPERSAND "&"
 INTEGER [0-9]+
 TRUE verdadero
 FALSE falso
@@ -62,6 +63,7 @@ END_INSTR "."
 {INTEGER}				{yylval = atoi(yytext); return INTEGER;}
 {STRING}				{yylval = yytext; return STRING;}
 {COMA}                                  return COMA;
+{AMPERSAND}				return AMPERSAND;
 {TRUE}					return TRUE;
 {FALSE}					return FALSE;
 
@@ -97,6 +99,7 @@ END_INSTR "."
 {OP_EQ}					return OP_EQ;
 {OP_DIST}				return OP_DIST;
 {OP_PRINT}				return OP_PRINT;
+{OP_IN}					return OP_IN;
 
 {START}					return START;
 {END}					return END;

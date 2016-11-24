@@ -38,11 +38,13 @@ int yylex();
 %token OP_EQ;
 %token OP_DIST;
 %token OP_PRINT;
+%token OP_IN;
 %token START;
 %token END;
 %token ENTER;
 %token END_INSTR;
 %token COMA;
+%token AMPERSAND;
 
 %start comienza
 %%
@@ -60,7 +62,8 @@ code : instruction code | control_sequence code | /*empty*/ {
 
 instruction : declaration assign end_instr 
 | declaration end_instr 
-| print end_instr 
+| print end_instr
+| in end_instr 
 | var_name assign end_instr 
 | var_name op_plus_one end_instr
 | var_name op_sub_one end_instr;
@@ -79,9 +82,15 @@ print: op_print open_parenthesis string coma string close_parenthesis
 | op_print open_parenthesis string close_parenthesis
 ;
 
+in: op_in open_parenthesis string coma ampersand var_name close_parenthesis; 
+
 coma : COMA {
 	printf(",");     
 };
+
+ampersand: AMPERSAND{
+	printf("&");
+}
 
 control_sequence : if_block | loop;
 
@@ -118,6 +127,10 @@ while : WHILE {
 op_print: OP_PRINT {
 	printf("printf");
 };
+
+op_in: OP_IN{
+	printf("scanf");
+}
 
 op_plus_one: OP_PLUS_ONE {
 	printf("++");

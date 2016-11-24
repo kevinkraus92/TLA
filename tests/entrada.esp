@@ -1,0 +1,6 @@
+EMPEZAR
+	entero x.
+	imprime ¿ "Ingrese un numero: " ?. 
+	entrada ¿ "%d", &x ?.
+	imprime ¿ "El numero es: %d \n", x ?. 
+TERMINAR
