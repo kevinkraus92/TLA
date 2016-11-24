@@ -61,7 +61,7 @@ END_INSTR "."
 %%
 {INTEGER}				{yylval = atoi(yytext); return INTEGER;}
 {STRING}				{yylval = yytext; return STRING;}
-{COMA}                                  {yylval = yytext; return COMA;}
+{COMA}                                  return COMA;
 {TRUE}					return TRUE;
 {FALSE}					return FALSE;
 
