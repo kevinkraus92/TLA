@@ -1,25 +1,25 @@
 EMPEZAR
 	entero base.
 	entero pot.
-	imprime ¿ "Ingrese la base" ?.
+	imprime ¿ "La base es 2\n" ?.
 	base vale 2.
-	imprime ¿ "Ingrese la potencia" ?.
-	pot vale 3.
+	imprime ¿ "La potencia es 10\n" ?.
+	pot vale 10.
 	si ¿ pot igual 0 y base igual 0?<
-		imprime ¿ "Error" ?.
+		imprime ¿ "Error\n" ?.
 	> sino <
 		si ¿ base igual 0 ?<
-			imprime ¿base?.
+			imprime ¿"La base es %d\n ", base?.
 		> sino <
 				si ¿ pot igual 0?<
-					imprime ¿ 1 ?.
+					imprime ¿ "El resultado es %d\n", 1 ?.
 				>
 				sino <
 					mientras ¿ pot mayor igual 1 ? <
 					base vale base multiplicado base.
 					pot decrementar.
 					>
-					imprime ¿base?.
+					imprime ¿"El resultado es %d\n",base?.
 				>
 			>
 		>

@@ -10,10 +10,15 @@ all:
 	gcc -o $(PARSER) lex.yy.c y.tab.c -ly
 
 compile:
-	./$(PARSER) < tests/factorial.esp > salida.c
-	gcc -c salida.c
-	gcc salida.o -o salida.out
+	./$(PARSER) < tests/factorial.esp > factorial.c
+	gcc -c -w factorial.c
+	gcc -w factorial.o -o factorial.out
+	./factorial.out
+	./$(PARSER) < tests/potencia.esp > potencia.c
+	gcc -c -w potencia.c
+	gcc -w potencia.o -o potencia.out
+	./potencia.out
 
 clean: 	
-	rm -f *.out *.o $(PARSER) lex.yy.c y.tab.c y.tab.h salida.c
+	rm -f *.out *.o $(PARSER) lex.yy.c y.tab.c y.tab.h potencia.c factorial.c
 
