@@ -13,5 +13,4 @@ EMPEZAR
 		k aumentar.
 	>
 	imprime ¿ "El termino es: %d \n", j ?.
-
 TERMINAR
