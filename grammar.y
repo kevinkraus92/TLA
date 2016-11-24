@@ -5,13 +5,20 @@ int yylex();
 
 %}
 
+%error-verbose
 
-%token INTEGER;
-%token STRING;
+%union 
+{
+        int number;
+        char *string;
+}
+
+%token <number> INTEGER;
+%token <string> STRING;
 %token TRUE;
 %token FALSE;
 %token INT_VAR;
-%token VAR_NAME;
+%token <string> VAR_NAME;
 %token IF;					
 %token ELSE;
 %token DO; 					
@@ -40,7 +47,7 @@ int yylex();
 %token OP_PRINT;
 %token OP_IN;
 %token START;
-%token END;
+%token END_PROG;
 %token ENTER;
 %token END_INSTR;
 %token COMA;
@@ -49,13 +56,15 @@ int yylex();
 %start comienza
 %%
 
-comienza : start code{
-	printf("}");
-};
+comienza : start code end_prog;
 
 start: START {
 	printf("int main(){");
 };
+
+end_prog: END_PROG{
+	printf("}");
+}
 
 code : instruction code | control_sequence code | /*empty*/ {
 };

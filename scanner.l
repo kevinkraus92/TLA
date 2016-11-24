@@ -8,7 +8,7 @@
 ENTER ^"\n"
 
 START "EMPEZAR"
-END "TERMINAR"
+END_PROG "TERMINAR"
 
 STRING ["][^\n\r]*["] 
 COMA ","
@@ -60,8 +60,8 @@ END_INSTR "."
 
 
 %%
-{INTEGER}				{yylval = atoi(yytext); return INTEGER;}
-{STRING}				{yylval = yytext; return STRING;}
+{INTEGER}				{yylval.number = atoi(yytext); return INTEGER;}
+{STRING}				{yylval.string = yytext; return STRING;}
 {COMA}                                  return COMA;
 {AMPERSAND}				return AMPERSAND;
 {TRUE}					return TRUE;
@@ -102,12 +102,17 @@ END_INSTR "."
 {OP_IN}					return OP_IN;
 
 {START}					return START;
-{END}					return END;
+{END_PROG}				return END_PROG;
 
 {ENTER}					return ENTER;
 {END_INSTR}				return END_INSTR;
 
-{VAR_NAME}				{yylval = yytext; return VAR_NAME;}
+[ \t]					ECHO;
+
+<<EOF>>					return 0;
+
+{VAR_NAME}				{yylval.string = yytext; return VAR_NAME;}
+.						{fprintf(stderr, "Invalid input.");}
 %%
 
 
