@@ -13,9 +13,8 @@ if ( a==1 ) {
 if ( a==2 ) {
 	printf("No es primo\n");
 }
-while( ( a%b)!=0&&b!=1 ){
+while(a%b!=0&&b!=1 ){
 	b --;
-	printf("%d valor b\n",b);
 }
 if ( b==1 ) {
 	printf("%d es primo\n",a);
