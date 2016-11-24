@@ -141,10 +141,10 @@ op_assign: OP_ASSIGN {
 	printf("=");
 }
 
-boolean_expression: boolean_expression op_or boolean_expression
+boolean_expression: boolean_expression op_or boolean_term
 					| boolean_term;
 
-boolean_term: boolean_term op_and boolean_term
+boolean_term: boolean_term op_and boolean_factor
 			| boolean_factor;
 
 boolean_factor: open_parenthesis boolean_expression close_parenthesis 
