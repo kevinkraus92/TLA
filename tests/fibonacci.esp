@@ -1,0 +1,17 @@
+EMPEZAR
+	entero i vale 0.
+	entero j vale 1.
+	entero k vale 1.
+	entero t.
+	entero n.
+	imprime ¿ "Ingrese que termino de Fibonacci desea calcular: " ?.
+	entrada ¿ "%d" , &n ?.
+	mientras ¿ k menor igual n ?<
+		t vale i mas j.
+		i vale j.
+		j vale t.
+		k aumentar.
+	>
+	imprime ¿ "El termino es: %d \n", j ?.
+
+TERMINAR

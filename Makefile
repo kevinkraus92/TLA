@@ -22,11 +22,11 @@ compile:
 	gcc -c -w primo.c
 	gcc -w primo.o -o primo.out
 	./primo.out
-	./$(PARSER) < tests/entrada.esp > entrada.c
-	gcc -c -w entrada.c
-	gcc -w entrada.o -o entrada.out
-	./entrada.out
+	./$(PARSER) < tests/fibonacci.esp > fibonacci.c
+	gcc -c -w fibonacci.c
+	gcc -w fibonacci.o -o fibonacci.out
+	./fibonacci.out
 
 clean: 	
-	rm -f *.out *.o $(PARSER) lex.yy.c y.tab.c y.tab.h potencia.c factorial.c
+	rm -f *.out *.o $(PARSER) lex.yy.c y.tab.c y.tab.h potencia.c factorial.c primo.c fibonacci.c
 
