@@ -18,6 +18,7 @@ int yylex();
 %token TRUE;
 %token FALSE;
 %token INT_VAR;
+%token STRING_VAR;
 %token <string> VAR_NAME;
 %token IF;					
 %token ELSE;
@@ -70,20 +71,27 @@ code : instruction code | control_sequence code | /*empty*/ {
 };
 
 instruction : declaration assign end_instr 
+| declaration assign_string end_instr
 | declaration end_instr 
 | print end_instr
 | in end_instr 
 | var_name assign end_instr 
+| var_name assign_string end_instr 
 | var_name op_plus_one end_instr
 | var_name op_sub_one end_instr;
 
 declaration: type var_name;
 
-type: int_var;
+type: int_var
+|string_var;
 
 int_var: INT_VAR{
 	printf("int");
 }; 
+
+string_var: STRING_VAR{
+	printf("char *");
+}
 
 print: op_print open_parenthesis string coma string close_parenthesis
 | op_print open_parenthesis string coma var_name close_parenthesis
@@ -158,6 +166,8 @@ string: STRING{
 };
 
 assign: op_assign expression;
+
+assign_string: op_assign string;
 
 op_assign: OP_ASSIGN {
 	printf("=");

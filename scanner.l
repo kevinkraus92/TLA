@@ -18,6 +18,7 @@ TRUE verdadero
 FALSE falso
 
 INT_VAR entero
+STRING_VAR cadena
 VAR_NAME [a-zA-Z]+
 
 IF si
@@ -68,6 +69,7 @@ END_INSTR "."
 {FALSE}					return FALSE;
 
 {INT_VAR}				return INT_VAR;
+{STRING_VAR}			return STRING_VAR;
 
 {IF}					return IF;
 {ELSE}					return ELSE;
