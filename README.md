@@ -5,13 +5,9 @@ Teoria de Lenguajes y Automatas ITBA 2016
 ### Compilar compilador
 ```
 make
+```
+### Compilar tests
+```
 make compile
 ```
-### Ejecutar
-```
-./salida.out 
-```
-### Ejecutar 'file.esp'
-```
 
-```
