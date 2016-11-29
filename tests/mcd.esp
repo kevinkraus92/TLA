@@ -1,0 +1,20 @@
+EMPEZAR
+	entero a.
+	entero b.		
+	imprime ¿ "Ingrese el primer número: " ?.
+	entrada ¿ "%d" , &a ?.
+	imprime ¿ "Ingrese el segundo número: " ?.
+	entrada ¿ "%d" , &b ?.
+	si ¿ a menor 0 ? <
+		a vale a multiplicado -1.
+	>
+	si ¿ b menor 0 ? <
+		b vale b multiplicado -1.
+	>
+	mientras ¿ b distinto 0 ? <
+		entero aux vale a.
+		a vale b.
+		b vale aux modulo b.
+	>
+	imprime ¿ "El máximo común divisor es: %d\n", a ?.
+TERMINAR

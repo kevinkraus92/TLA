@@ -26,7 +26,11 @@ compile:
 	gcc -c -w fibonacci.c
 	gcc -w fibonacci.o -o fibonacci.out
 	./fibonacci.out
+	./$(PARSER) < tests/mcd.esp > mcd.c
+	gcc -c -w mcd.c
+	gcc -w mcd.o -o mcd.out
+	./mcd.out
 
 clean: 	
-	rm -f *.out *.o $(PARSER) lex.yy.c y.tab.c y.tab.h potencia.c factorial.c primo.c fibonacci.c
+	rm -f *.out *.o $(PARSER) lex.yy.c y.tab.c y.tab.h potencia.c factorial.c primo.c fibonacci.c mcd.c
 

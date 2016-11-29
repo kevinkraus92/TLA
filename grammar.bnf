@@ -2,15 +2,27 @@
 
 <code> ::= "" | <instruction> <code> | <control_sequence> <code>
 
-<instruction> ::= <declaration> <asign>"END_INSTR" | <declaration>"END_INSTR" | <print>"END_INSTR" | "VAR_NAME" <asign>"END_INSTR" | "VAR_NAME" "OP_PLUS_ONE" | "VAR_NAME" "OP_SUB_ONE" | "OP_IN" "OPEN_PARENTHESIS" "VAR_NAME" "CLOSE_PARENTHESIS" "END_INSTR"
+<instruction> ::= <declaration> <asign>"END_INSTR" 
+|<declaration> <asign_string>"END_INSTR" 
+|<declaration>"END_INSTR" 
+| <print>"END_INSTR" 
+| "VAR_NAME" <asign>"END_INSTR" 
+| "VAR_NAME" <asign_string>"END_INSTR" 
+| "VAR_NAME" "OP_PLUS_ONE" 
+| "VAR_NAME" "OP_SUB_ONE" 
+| in"END_INSTR"
 
 <declaration> ::= <type> "VAR_NAME"
 
-<type> ::= "INT_VAR"
+<type> ::= "INT_VAR" | "STRING_VAR"
 
 <asign> ::= "OP_ASSIGN" <expression>
 
-<print> ::= "OP_PRINT" "OPEN_PARENTHESIS" "STRING" "CLOSE_PARENTHESIS" | "OP_PRINT" "OPEN_PARENTHESIS" "VAR_NAME" "CLOSE_PARENTHESIS"
+<print> ::= "OP_PRINT" "OPEN_PARENTHESIS" "STRING" "COMA" "STRING" "CLOSE_PARENTHESIS" 
+|"OP_PRINT" "OPEN_PARENTHESIS" "STRING" "COMA" "VAR_NAME" "CLOSE_PARENTHESIS"
+|"OP_PRINT" "OPEN_PARENTHESIS" "STRING" "COMA" "INTEGER" "CLOSE_PARENTHESIS"
+
+<in> ::= "OP_IN" "OPEN_PARENTHESIS" "STRING" "COMA" "AMPERSAND" "VAR_NAME" "CLOSE_PARENTHESIS" 
 
 <control_sequence> ::= <if> | <loop>
 
@@ -23,19 +35,21 @@
 
 <close_block> ::= "CLOSE_BLOCK"
 
-<boolean_expression> ::= <boolean_expression> "OP_OR" <boolean_expression> | <boolean_term>
+<boolean_expression> ::= <boolean_expression> "OP_OR" <boolean_term> | <boolean_term>
 
-<boolean_term> ::= <boolean_term> "OP_AND" <boolean_term> | <boolean_factor>
+<boolean_term> ::= <boolean_term> "OP_AND" <boolean_factor> | <boolean_factor>
 
-<boolean_factor> ::= "(" <boolean_expression> ")" | "OP_NEG" <boolean_factor> | <boolean>
+<boolean_factor> ::= "OPEN_PARENTHESIS" <boolean_expression> "CLOSE_PARENTHESIS" | "OP_NEG" <boolean_factor> | <boolean>
 
 <boolean> ::= "TRUE" | "FALSE" | <comparation>
 
 <comparation> ::=  <expression> <compare_operator> <expression>
 
-<expression> ::= "(" <expression> "OP_SUM" <term> ")" | "(" <expression> "OP_SUB" <term> ")" | <term>
+<expression> ::= "OPEN_PARENTHESIS" <expression> "OP_SUM" <term> ")" | "OPEN_PARENTHESIS" <expression> "OP_SUB" <term> "CLOSE_PARENTHESIS" | <term> 
+| <expression> "OP_SUM" <term> | <expression> "OP_SUB" <term> | <expression> "OP_MODULO" <term>
 
-<term> ::= "(" <term> "OP_MUL" <factor> ")" | "(" <term> "OP_DIV" <factor> ")" | <factor>
+<term> ::= "OPEN_PARENTHESIS" <term> "OP_MUL" <factor> "CLOSE_PARENTHESIS" | "OPEN_PARENTHESIS" <term> "OP_DIV" <factor> "CLOSE_PARENTHESIS" | <factor> 
+| <term> "OP_MUL" <factor> | <term> "OP_DIV" <factor> 
 
 <factor> ::= "VAR_NAME" | "INTEGER"
 

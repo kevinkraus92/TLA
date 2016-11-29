@@ -13,7 +13,7 @@ END_PROG "TERMINAR"
 STRING ["][^\n\r]*["] 
 COMA ","
 AMPERSAND "&"
-INTEGER [0-9]+
+INTEGER [-]?[0-9]+
 TRUE verdadero
 FALSE falso
 
