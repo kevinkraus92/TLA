@@ -45,7 +45,7 @@
 
 <comparation> ::=  <expression> <compare_operator> <expression>
 
-<expression> ::= "OPEN_PARENTHESIS" <expression> "OP_SUM" <term> ")" | "OPEN_PARENTHESIS" <expression> "OP_SUB" <term> "CLOSE_PARENTHESIS" | <term> 
+<expression> ::= "OPEN_PARENTHESIS" <expression> "OP_SUM" <term> "CLOSE_PARENTHESIS" | "OPEN_PARENTHESIS" <expression> "OP_SUB" <term> "CLOSE_PARENTHESIS" | <term> 
 | <expression> "OP_SUM" <term> | <expression> "OP_SUB" <term> | <expression> "OP_MODULO" <term>
 
 <term> ::= "OPEN_PARENTHESIS" <term> "OP_MUL" <factor> "CLOSE_PARENTHESIS" | "OPEN_PARENTHESIS" <term> "OP_DIV" <factor> "CLOSE_PARENTHESIS" | <factor> 
