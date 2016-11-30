@@ -10,4 +10,7 @@ make
 ```
 make compile
 ```
-
+### Compilar ``archivo.esp``
+```
+./compile.sh archivo.esp
+```

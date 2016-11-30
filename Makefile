@@ -8,6 +8,7 @@ all:
 	yacc -d $(GRAMMAR)
 	lex $(SCANNER_RULES)
 	gcc -o $(PARSER) lex.yy.c y.tab.c -ly
+	@echo "Compilador compilado"
 
 compile:
 	./$(PARSER) < tests/factorial.esp > tests/factorial.c
@@ -25,7 +26,8 @@ compile:
 	./$(PARSER) < tests/mcd.esp > tests/mcd.c
 	gcc -c -w tests/mcd.c
 	gcc -w mcd.o -o mcd.out	
+	@echo "Tests compilados"
 
 clean: 	
-	rm -f *.out *.o $(PARSER) lex.yy.c y.tab.c y.tab.h tests/potencia.c tests/factorial.c tests/primo.c tests/fibonacci.c tests/mcd.c
+	rm -f *.out *.o $(PARSER) lex.yy.c y.tab.c y.tab.h tests/potencia.c tests/factorial.c tests/primo.c tests/fibonacci.c tests/mcd.c out.c
 

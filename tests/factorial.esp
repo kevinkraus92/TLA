@@ -1,18 +1,19 @@
 EMPEZAR
 	entero n.
 	entero i.
-	n vale 9.
+	imprime ¿"Que factorial desea calcular?: "?.
+	entrada ¿ "%d", &n ?.
 	i vale n.
 	i decrementar.
-        imprime ¿ "Vamos a calcular el factorial de %d\n", 9 ?.
-	si ¿ i igual 0 ?<
-	entero a.
+        imprime ¿ "Vamos a calcular el factorial de %d\n", n ?.
+	si ¿ n igual 0 o n igual 1 ?<
+		imprime ¿ "El factorial es %d\n" , 1 ?.
 	>
 	sino <
 		mientras ¿ i mayor 0 ? <
 			n vale n multiplicado i.
 			i vale i menos 1.
                 >
-        imprime ¿ "El factorial de 9 es %d\n", n ? .
+        imprime ¿ "El factorial es %d\n", n ? .
 	>
 TERMINAR
